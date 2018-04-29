@@ -9,7 +9,7 @@ import numpy as np
 
 #load_data
 
-test=np.loadtxt("eprime.txt")
+test=np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
 
 
 
