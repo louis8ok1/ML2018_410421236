@@ -12,14 +12,14 @@ import matplotlib.pyplot as plt
 #load_data
 
 #用np.loadtxt來讀取數值
-k1 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k1.txt", dtype=int)
-k2 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k2.txt", dtype=int)
-E  = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt", dtype=int)
+k1 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k1.txt" )
+k2 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k2.txt")
+E  = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
 
 
 #發現i.txt只有一個數值，所以就處理相片來獲取資料
 I = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\I.png")
-Eprime=np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt", dtype=int)
+Eprime=np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
 print(I)
 print("---------------------")
 print(Eprime)
@@ -55,14 +55,11 @@ while True:
    
     if Epoch >=3:
            
-           p= (E - (weight[0]*k1)-(weight[1]*k2))/weight[2]
            
-           plt.imshow(p,cmap="gray")
-           plt.show()
            
-           ap= (Eprime - (weight[0]*k1)-(weight[1]*k2))/weight[2]
+           ans_picture= (Eprime - (weight[0]*k1)-(weight[1]*k2))/weight[2]
            
-           plt.imshow(ap,cmap="gray")
+           plt.imshow(ans_picture,cmap="gray")
            plt.show()
           
           
