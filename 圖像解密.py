@@ -12,56 +12,72 @@ import matplotlib.pyplot as plt
 #load_data
 
 #用np.loadtxt來讀取數值
-k1 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k1.txt" )
+#使用文字檔處理會比較模糊 所以我改讀取圖片
+"""
+k1 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k1.txt")
 k2 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k2.txt")
 E  = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
-
-
-#發現i.txt只有一個數值，所以就處理相片來獲取資料
-I = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\I.png")
 Eprime=np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
-print(I)
-print("---------------------")
-print(Eprime)
-Epoch = 10
-#讓權重有隨機的初始值
-weight = np.random.rand(3)
+I = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\I.png")
+"""
+k1 = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\key1.png")
+k2  = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\key2.png")
+E = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\E.png")
+Eprime =imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\Eprime.png")
+I = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\I.png")
 
-learning_rate=0.00001
+#print(I)
+#==================================================================================================#
 
-L = 400
+Epoch = 1
 
-W = 300
+weight = np.random.rand(3)#讓權重有隨機的初始值
 
-print("Random Weight:",weight)
 
-while True:
-    
+learning_rate=0.00001#當我嘗試調高學習率時，直接不能跑
+
+MaxIterLimit=10
+
+
+L = 400#data 的length
+
+W = 300#data 的width
+
+print(">Random Weight:",weight)#看一下還沒訓練的權重
+
+
+#==================================================================================================#
+
+#np.any() 為 ndarray 中有任何真值或者非零值则返回 True.
+#np.absolute() 為讓()取絕對值
+while (Epoch==1 or Epoch<MaxIterLimit and np.any(np.absolute(weight[1]-weight[0])>learning_rate)):
+   
     for i in range(W):
         
-        temp_weight=weight.sum()
+    
         
         temp0=0
         
         for j in range(L):
             temp1 = weight[0]*k1[i][j]+ weight[1]*k2[i][j]+weight[2]*I[i][j]
-            temp2 = E[i][j]-temp1 
+            temp0 = E[i][j]-temp1 
             
-            weight[0]=weight[0]+learning_rate*temp2*k1[i][j]
-            weight[1]=weight[1]+learning_rate*temp2*k2[i][j]
-            weight[2]=weight[2]+learning_rate*temp2*k1[i][j]
-        
+            weight[0]=weight[0]+learning_rate*temp0*k1[i][j]
+            weight[1]=weight[1]+learning_rate*temp0*k2[i][j]
+            weight[2]=weight[2]+learning_rate*temp0*I[i][j]
+           
+    print(">Epoch = ",Epoch,"and Difference is:",temp0)
+    
     Epoch += 1
-   
-    if Epoch >=3:
-           
-           
-           
+    
+    if Epoch >=10:
+          
            ans_picture= (Eprime - (weight[0]*k1)-(weight[1]*k2))/weight[2]
            
            plt.imshow(ans_picture,cmap="gray")
            plt.show()
-          
+           print(weight)
+        
           
            
         
