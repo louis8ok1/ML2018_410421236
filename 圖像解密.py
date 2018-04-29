@@ -6,19 +6,22 @@ Created on Sun Apr 29 14:13:24 2018
 """
 import imageio
 import numpy as np
+import matplotlib.pyplot as plt
 
 #==================================================================================#
 #load_data
 
 #用np.loadtxt來讀取數值
-k1 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k1.txt")
-k2 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k2.txt")
-E  = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
+k1 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k1.txt", dtype=int)
+k2 = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\k2.txt", dtype=int)
+E  = np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt", dtype=int)
 
 
 #發現i.txt只有一個數值，所以就處理相片來獲取資料
 I = imageio.imread("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\I.png")
-Eprime=np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt")
+Eprime=np.loadtxt("G:\學校課堂資料\東華大三下\機器學習\ML_2018_410421236\data\eprime.txt", dtype=int)
+print(I)
+print("---------------------")
 print(Eprime)
 Epoch = 10
 #讓權重有隨機的初始值
@@ -54,14 +57,15 @@ while True:
            
            p= (E - (weight[0]*k1)-(weight[1]*k2))/weight[2]
            
-           p.imshow(p,cmap="gray")
-           p.show()
+           plt.imshow(p,cmap="gray")
+           plt.show()
            
            ap= (Eprime - (weight[0]*k1)-(weight[1]*k2))/weight[2]
            
-           p.imshow(ap,cmap="gray")
-           p.show()
-           
+           plt.imshow(ap,cmap="gray")
+           plt.show()
+          
+          
            
         
 
