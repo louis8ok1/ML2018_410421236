@@ -1,5 +1,5 @@
-# ML2018_410421236
-## ML Project ##
+#Machine Learning 2018,NDHU#
+## Assignment 1 ##
 >
 >這是我第一次使用github
 >覺得很方便
