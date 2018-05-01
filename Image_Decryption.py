@@ -86,7 +86,7 @@ ans_picture= (Eprime - (weight[0]*k1)-(weight[1]*k2))/weight[2]
            
 plt.imshow(ans_picture,cmap="gray")
 
-plt.savefig('G:\\學校課堂資料\\東華大三下\\機器學習\\ML_2018_410421236\\pic\\ans_picture',bbox_inches='tight')
+plt.savefig('G:\\學校課堂資料\\東華大三下\\機器學習\\ML_2018_410421236\\ans_picture',bbox_inches='tight')
 plt.show()
 
     
