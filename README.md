@@ -19,4 +19,4 @@
 ## 如何把圖片讀入model ##
 >>使用imageio模組來讀圖片
 ## 成果 ##
->![]=(https://raw.githubusercontent.com/louis8ok1/ML2018_410421236/master/ans_picture.png)
+>![ans_picture]=(https://raw.githubusercontent.com/louis8ok1/ML2018_410421236/master/ans_picture.png)
