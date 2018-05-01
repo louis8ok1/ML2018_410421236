@@ -39,9 +39,9 @@ learning_rate=0.000001#當我嘗試調高學習率時，直接不能跑
 MaxIterLimit=10
 
 
-L = 400#data 的length
+L = 400#data的length
 
-W = 300#data 的width
+W = 300#data的width
 
 print(">初始 Random Weight:",weight)#看一下還沒訓練的隨機權重
 
